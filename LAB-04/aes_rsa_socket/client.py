@@ -6,6 +6,7 @@ import socket
 import threading
 import hashlib
 
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_key = RSA.generate(2048)
 server_public_key = RSA.import_key(client_socket.recv(2048))
 client_socket.send(client_key.public_key().export_key(format='PEM'))
